@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { View, Animated, Text, StyleSheet } from 'react-native';
+import { Text, View, Animated } from 'react-native';
 
-export default class Ball extends Component {
+class Ball extends Component {
   componentWillMount() {
     this.position = new Animated.ValueXY(0, 0);
     Animated.spring(this.position, {
@@ -12,15 +12,18 @@ export default class Ball extends Component {
   render() {
     return (
       <Animated.View style={this.position.getLayout()}>
-        <View style={styles.ball} />;
+        <View style={styles.ball} />
       </Animated.View>
     );
   }
 }
 
-const styles = StyleSheet.create({
+const styles = {
   container: {
     flex: 1
+  },
+  text: {
+    color: 'blue'
   },
   ball: {
     height: 60,
@@ -29,4 +32,6 @@ const styles = StyleSheet.create({
     borderWidth: 30,
     borderColor: 'black'
   }
-});
+};
+
+export default Ball;
