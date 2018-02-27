@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Ball from './src/components/Ball';
+import Watermelon from './src/components/Watermelon';
 
 export default class App extends Component {
   render() {
@@ -15,8 +16,9 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
+    backgroundColor: '#fff'
+  },
+  text: {
+    color: 'red'
   }
 });
