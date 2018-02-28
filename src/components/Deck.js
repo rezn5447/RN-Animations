@@ -19,20 +19,35 @@ export default class Deck extends Component {
     this.position = position;
   }
 
+  getCardStyle() {
+    const rotate = this.position.x.interpolate({
+      inputRange: [-500, 0, 500],
+      outputRange: ['-120deg', '0deg', '120deg']
+    });
+    return {
+      ...this.position.getLayout(),
+      transform: [{ rotate }]
+    };
+  }
+
   renderCards() {
-    return this.props.data.map(item => {
+    return this.props.data.map((item, index) => {
+      if (index === 0) {
+        return (
+          <Animated.View
+            key={item.id}
+            style={this.getCardStyle()}
+            {...this.panResponder.panHandlers}
+          >
+            {this.props.renderCard(item)}
+          </Animated.View>
+        );
+      }
       return this.props.renderCard(item);
     });
   }
   render() {
-    return (
-      <Animated.View
-        style={this.position.getLayout()}
-        {...this.panResponder.panHandlers}
-      >
-        {this.renderCards()}
-      </Animated.View>
-    );
+    return <View>{this.renderCards()}</View>;
   }
 }
 
