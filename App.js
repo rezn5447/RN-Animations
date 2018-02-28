@@ -19,6 +19,7 @@ export default class App extends Component {
       </Card>
     );
   }
+
   render() {
     return (
       <View style={styles.container}>
