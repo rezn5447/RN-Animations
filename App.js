@@ -9,7 +9,7 @@ import Watermelon from './src/components/Watermelon';
 export default class App extends Component {
   renderCard(item) {
     return (
-      <Card title={item.text} image={{ uri: item.uri }}>
+      <Card key={item.id} title={item.text} image={{ uri: item.uri }}>
         <Text style={{ marginBottom: 10 }}>
           I can customize the card further
         </Text>
