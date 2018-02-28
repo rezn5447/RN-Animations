@@ -8,7 +8,18 @@ import Watermelon from './src/components/Watermelon';
 
 export default class App extends Component {
   renderCard(item) {
-    return <Text>{item.text}</Text>;
+    return (
+      <Card title={item.text} image={{ uri: item.uri }}>
+        <Text style={{ marginBottom: 10 }}>
+          I can customize the card further
+        </Text>
+        <Button
+          icon={{ name: 'code' }}
+          backgroundColor="#03A9F4"
+          title="View Now!"
+        />
+      </Card>
+    );
   }
   render() {
     return (
