@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { Card, Button } from 'react-native-elements';
 import { DATA } from './src/assets/data';
-import Ball from './src/components/Ball';
-import Deck from './src/components/Deck';
-import Watermelon from './src/components/Watermelon';
+import { Ball, Deck, Watermelon } from './src/components';
 
 export default class App extends Component {
   renderCard(item) {
