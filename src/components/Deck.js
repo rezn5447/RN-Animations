@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
-import { View, Text, Animated, StyleSheet } from 'react-native';
-import DATA from '../assets/data';
+import { View, Animated } from 'react-native';
 
 export default class Deck extends Component {
+  renderCards() {
+    return this.props.data.map(item => {
+      return this.props.renderCard(item);
+    });
+  }
   render() {
-    return (
-      <View style={styles.container}>
-        <Text>I'm the Deck component</Text>
-      </View>
-    );
+    return <View>{this.renderCards()}</View>;
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  }
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1
+//   }
+// });
