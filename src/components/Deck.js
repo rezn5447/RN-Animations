@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, Animated, StyleSheet } from 'react-native';
+import DATA from '../assets/data';
 
 export default class Deck extends Component {
   render() {
