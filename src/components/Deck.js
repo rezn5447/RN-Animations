@@ -44,6 +44,12 @@ export default class Deck extends Component {
     this.state = { index: 0 };
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.data !== this.props.data) {
+      this.setState({ index: 0 });
+    }
+  }
+
   ComponentWillUpdate() {
     UIManager.setLayoutAnimationEnabledExperimental &&
       setLayoutAnimationEnabledExperimental(true);
@@ -61,7 +67,6 @@ export default class Deck extends Component {
   onSwipeComplete(direction) {
     const { onSwipeLeft, onSwipeRight, data } = this.props;
     const item = data[this.state.index];
-    console.log(item);
     direction === 'right' ? onSwipeRight(item) : onSwipeLeft(item);
     this.position.setValue({ x: 0, y: 0 });
     this.setState({ index: this.state.index + 1 });
