@@ -50,6 +50,8 @@ export default class Deck extends Component {
     const item = data[this.state.index];
 
     direction === 'right' ? onSwipeRight(item) : onSwipeLeft(item);
+    this.position.setValue({ x: 0, y: 0 });
+    this.setState({ index: this.state.index + 1 });
   }
 
   resetPosition() {
@@ -71,8 +73,10 @@ export default class Deck extends Component {
 
   renderCards() {
     const { data, renderCard } = this.props;
-    return data.map((item, index) => {
-      if (index === 0) {
+    return data.map((item, i) => {
+      if (i < this.state.index) return null;
+
+      if (i === this.state.index) {
         return (
           <Animated.View
             key={item.id}
