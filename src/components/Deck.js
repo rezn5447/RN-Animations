@@ -93,7 +93,10 @@ export default class Deck extends Component {
         }
 
         return (
-          <Animated.View key={item.id} style={styles.cardStyle}>
+          <Animated.View
+            key={item.id}
+            style={[styles.cardStyle, { top: 10 * (i - this.state.index) }]}
+          >
             {renderCard(item)}
           </Animated.View>
         );
